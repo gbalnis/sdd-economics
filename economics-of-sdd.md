@@ -53,42 +53,11 @@ Feedback closes the loop by updating intent based on real outcomes.
 
 The primary organizational question is how to allocate decision rights, production work, and verification work across the layers between humans and agents.
 
-### 4.3 Where human-agent interaction becomes visible
-In this paper, we use work allocation-based terms:
+### 4.3 Interaction topology for SDD
+We use work allocation-based terms to talk about the human-agent collaboration in each stage of the flow:
 - Human-primary work: high-entropy activities where most effort and accountability are carried by humans, even when agents assist.
 - Agent-primary work: low-entropy activities where most execution effort is delegated to agents, with humans providing direction, review, and approval.
 
-#### 4.3.1 Ideas
-- Human-primary work: problem framing, priority setting, tradeoff selection, stakeholder alignment.
-- Agent-primary work: summarization of prior incidents, demand pattern clustering, draft option generation.
-- Interaction risk: teams may mistake generated option sets for strategic decisions.
-
-#### 4.3.2 Specs
-- Human-primary work: ambiguity removal, boundary definition, acceptance criteria, non-functional constraints.
-- Agent-primary work: spec drafting, gap detection, consistency checks, trace link suggestions.
-- Interaction risk: high-volume spec text can create false confidence if assumptions are not explicitly tested.
-
-#### 4.3.3 Implementation
-- Human-primary work: architecture decisions, integration choices, exception handling, dependency negotiation.
-- Agent-primary work: code draft generation, refactoring transforms, boilerplate production, test scaffold generation.
-- Interaction risk: output quantity can exceed review capacity, creating hidden quality debt.
-
-#### 4.3.4 Validation
-- Human-primary work: risk-based test strategy, scenario selection, defect triage, release readiness judgment.
-- Agent-primary work: test case expansion, mutation or fuzz inputs, regression impact summarization.
-- Interaction risk: teams can over-index on executable checks and underweight business correctness.
-
-#### 4.3.5 Release
-- Human-primary work: change approval, operational coordination, rollback decisions, stakeholder communication.
-- Agent-primary work: release note drafting, checklist completion, deployment script generation.
-- Interaction risk: automation can compress timing while governance still requires explicit human accountability.
-
-#### 4.3.6 Feedback
-- Human-primary work: interpretation of outcomes, policy adjustments, backlog reprioritization.
-- Agent-primary work: telemetry summarization, anomaly detection, pattern extraction.
-- Interaction risk: teams can optimize for measurable signals while missing strategic or customer-context signals.
-
-### 4.4 Interaction topology for SDD
 The simplified model that takes into account human-agent collaboration:
 
 ```mermaid
@@ -104,11 +73,68 @@ flowchart LR
 	F --> S
 ```
 
-This view makes four management facts explicit:
 - Humans always remain accountable for intent, risk, and acceptance (Human-In-The-Loop principle).
 - The throughput of the system depends on the slowest human review or decision point, not the speed of agent generation. While parallelization of agent work is obviously possible, it is unlikely to improve performance of the whole system.
 - A priori, none of the steps in the loop are purely human or purely agent work. The performance of the system likely depends on optimization of the human-primary work, possibly by automation (agent-assisted or deterministic).
 - One of the ways to reduce the need for human work is to create a framework that promotes creation of low-entropy artifacts (that is: organization, par excellence).
+
+### 4.4 Where human-agent interaction becomes relevant
+
+#### 4.4.1 Ideas
+- Human-primary work: problem framing, priority setting, tradeoff selection, stakeholder alignment.
+- Agent-primary work: summarization of prior incidents, demand pattern clustering, draft option generation.
+- Interaction risk: teams may mistake generated option sets for strategic decisions.
+
+#### 4.4.2 Specs
+- Human-primary work: ambiguity removal, boundary definition, acceptance criteria, non-functional constraints.
+- Agent-primary work: spec drafting, gap detection, consistency checks, trace link suggestions.
+- Interaction risk: high-volume spec text can create false confidence if assumptions are not explicitly tested.
+
+#### 4.4.3 Implementation
+- Human-primary work: architecture decisions, integration choices, exception handling, dependency negotiation.
+- Agent-primary work: code draft generation, refactoring transforms, boilerplate production, test scaffold generation.
+- Interaction risk: output quantity can exceed review capacity, creating hidden quality debt.
+
+#### 4.4.4 Validation
+- Human-primary work: risk-based test strategy, scenario selection, defect triage, release readiness judgment.
+- Agent-primary work: test case expansion, mutation or fuzz inputs, regression impact summarization.
+- Interaction risk: teams can over-index on executable checks and underweight business correctness.
+
+#### 4.4.5 Release
+- Human-primary work: change approval, operational coordination, rollback decisions, stakeholder communication.
+- Agent-primary work: release note drafting, checklist completion, deployment script generation.
+- Interaction risk: automation can compress timing while governance still requires explicit human accountability.
+
+#### 4.4.6 Feedback
+- Human-primary work: interpretation of outcomes, policy adjustments, backlog reprioritization.
+- Agent-primary work: telemetry summarization, anomaly detection, pattern extraction.
+- Interaction risk: teams can optimize for measurable signals while missing strategic or customer-context signals.
+
+## 4.5 Approximation of a realistic SDD flow
+For the purpose of this discussion let's consider a model that focuses on what matters for a perticular, hypothetical organization Acme. In this model, we assume that:
+- Ideas are generated by humans.
+- Specs are drafted by agents but reviewed and approved by humans.
+- Implementation is done by agents only.
+- Validation is assisted by agents but ultimately reviewed and approved by humans.
+- Release is done byu humans with deterministic CI/CD pipelines.
+- Feedback is collected and processed by humans.
+
+```mermaid
+flowchart LR
+    subgraph Specs
+      direction TB
+      A1["🤖 Agent Drafting and Analysis"] <--> H1["🥸 Human Review and Decisions"]
+    end
+    subgraph Validation
+      direction TB
+      A2["🤖 Agent-Assisted Validation Prep"] <--> H2["🥸 Human Validation and Risk Review"]
+    end
+	I["🥸 Ideas"] --> Specs
+	Specs --> IMPL["🤖 Implementation"]
+	IMPL --> Validation
+    Validation --> R["🥸 Release"]
+	R --> F["🥸 Feedback"]
+```
 
 ## 5. Organizational economics
 ### 5.1 Labor allocation versus token allocation

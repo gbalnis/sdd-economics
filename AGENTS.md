@@ -41,6 +41,7 @@ Create a common mental model that helps the audience:
 - Explain the mental model in a way that supports debate and shared understanding.
 - Make room for the economics of human effort, AI/agent effort, and token consumption.
 - Highlight organizational implications for planning, review, verification, and accountability.
+- Consider the `notes.md` file as a source of raw material and research ideas.
 
 ## Working Rule
 Before drafting major sections, check that each section advances the shared mental model rather than simply restating implementation details.
