@@ -31,10 +31,6 @@
 
 ## 4. The mental model
 ### 4.1 Start from a familiar SDLC flow
-To create shared understanding, start with a flow everyone already recognizes:
-
-Ideas -> Specs -> Implementation -> Validation -> Release -> Feedback
-
 In a traditional human-only model, this flow is often discussed as a sequence of team handoffs. In SDD, the same flow remains, but each stage becomes a collaboration surface between humans and agents. The key point is that SDD does not replace the flow; it changes where effort is spent and where coordination risk appears.
 
 ```mermaid
@@ -55,14 +51,12 @@ At high level, this model has three functional layers:
 
 Feedback closes the loop by updating intent based on real outcomes.
 
-This layering helps leaders discuss SDD without getting trapped in tool debates. It makes clear that the primary organizational question is not whether to use agents, but how to allocate decision rights, production work, and verification work across the layers.
+The primary organizational question is how to allocate decision rights, production work, and verification work across the layers between humans and agents.
 
 ### 4.3 Where human-agent interaction becomes visible
-Once the high-level flow is accepted, break each stage into operational responsibilities.
-
-In this paper, we use allocation-based terms rather than visibility terms:
-- Human-primary work: activities where most effort and accountability are carried by humans, even when agents assist.
-- Agent-primary work: activities where most execution effort is delegated to agents, with humans providing direction, review, and approval.
+In this paper, we use work allocation-based terms:
+- Human-primary work: high-entropy activities where most effort and accountability are carried by humans, even when agents assist.
+- Agent-primary work: low-entropy activities where most execution effort is delegated to agents, with humans providing direction, review, and approval.
 
 #### 4.3.1 Ideas
 - Human-primary work: problem framing, priority setting, tradeoff selection, stakeholder alignment.
@@ -95,7 +89,7 @@ In this paper, we use allocation-based terms rather than visibility terms:
 - Interaction risk: teams can optimize for measurable signals while missing strategic or customer-context signals.
 
 ### 4.4 Interaction topology for SDD
-The practical model is not a linear chain but a controlled loop with explicit review gates.
+The simplified model that takes into account human-agent collaboration:
 
 ```mermaid
 flowchart LR
@@ -110,18 +104,11 @@ flowchart LR
 	F --> S
 ```
 
-This view makes three management facts explicit:
-- Agents increase production bandwidth.
-- Humans remain accountable for intent, risk, and acceptance.
-- System performance depends on the quality of gates between generation and decision.
-
-### 4.5 What this mental model enables
-Using this model, teams can debate SDD with a shared frame instead of role-specific anecdotes:
-- PMs can reason about where clarity work should be funded.
-- Engineering managers can reason about throughput versus review capacity.
-- Tech leads can reason about architecture and quality control points.
-
-The result is a common language for deciding which work should be agent-amplified, which work must remain human-led, and where mixed modes are most effective.
+This view makes four management facts explicit:
+- Humans always remain accountable for intent, risk, and acceptance (Human-In-The-Loop principle).
+- The throughput of the system depends on the slowest human review or decision point, not the speed of agent generation. While parallelization of agent work is obviously possible, it is unlikely to improve performance of the whole system.
+- A priori, none of the steps in the loop are purely human or purely agent work. The performance of the system likely depends on optimization of the human-primary work, possibly by automation (agent-assisted or deterministic).
+- One of the ways to reduce the need for human work is to create a framework that promotes creation of low-entropy artifacts (that is: organization, par excellence).
 
 ## 5. Organizational economics
 ### 5.1 Labor allocation versus token allocation
