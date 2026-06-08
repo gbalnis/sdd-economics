@@ -1,27 +1,22 @@
 # Economics of Spec-Driven Software Engineering
 
 ## 1. Purpose and audience
-- State the problem this paper is trying to solve: a shared mental model for reasoning about spec-driven software engineering in a large, mature organization.
-- Name the intended readers: project managers, engineering managers, and tech leads working within existing agile operating models.
-- Explain why a shared vocabulary matters before debating whether SDD is “good” or “bad.”
+TBD
 
 ## 2. Executive summary
-- Define the core claim of the paper in one paragraph.
-- Preview the key idea: SDD is not only a delivery technique, but an organizational model for allocating human effort, agent effort, and verification work.
-- Preview the main tradeoff: better coordination and leverage versus new costs in specification quality, review, governance, and token consumption.
+TBD
 
 ## 3. Definitions and scope
 ### 3.1 What spec-driven software engineering means here
-- Define SDD in operational terms, not as a slogan.
-- Distinguish specs as executable or semi-executable intent from code implementation.
-- Clarify that the paper is about organizing work around specs, not replacing engineering judgment.
+TBD
 
 ### 3.2 What this paper is not
 - Not a greenfield startup pattern.
 - Not a replacement for Scrum, Kanban, or SAFe.
-- Not a claim that agents remove the need for human accountability.
+- ...
 
 ### 3.3 Key terms used throughout
+TBD, likely to include:
 - Human work.
 - Agent work.
 - Token allocation.
@@ -138,14 +133,10 @@ flowchart LR
 
 ## 5. Organizational economics
 ### 5.1 Labor allocation versus token allocation
-- Explain the difference between paying for human attention and paying for machine generation.
-- Describe how token-heavy workflows can look cheap locally but expensive at scale.
-- Discuss how labor and token budgets interact in planning and governance.
+TBD
 
 ### 5.2 Cost shifts rather than cost removal
-- More emphasis on specification, review, and validation.
-- Less emphasis on hand-coded first drafts in some workstreams.
-- New overhead in orchestration, policy, and auditability.
+TBD
 
 ### 5.3 Economic questions leaders should ask
 - Where does agent work create real leverage?
@@ -154,57 +145,39 @@ flowchart LR
 
 ## 6. Human work and agent work
 ### 6.1 Human work
-- Problem framing.
-- Ambiguity reduction.
-- Architectural judgment.
-- Cross-team negotiation.
-- Review, accountability, and escalation.
+TBD
 
 ### 6.2 Agent work
+TBD, likely to include:
 - Drafting code from spec.
 - Producing repetitive transformations.
 - Generating test scaffolding.
 - Summarizing or tracing requirements where appropriate.
 
 ### 6.3 Boundary conditions
+TBD, but likely to include:
 - Human oversight is mandatory where ambiguity, risk, or organizational consequences are high.
 - Agent output is only valuable when the spec and verification system are strong enough to contain errors.
 
 ## 7. Fit with agile operating models
-### 7.1 Scrum
-- How SDD changes backlog refinement, sprint planning, and definition of done.
-- Where specs can reduce ambiguity in sprint execution.
-
-### 7.2 Kanban
-- How SDD affects flow efficiency, work-in-progress, and upstream readiness.
-- How specification quality influences throughput.
-
-### 7.3 SAFe and large-scale coordination
-- How SDD interacts with program increment planning, dependency management, and governance.
-- Why large organizations need explicit review and verification gates.
+TBD
 
 ## 8. Where SDD improves flow
-- Better coordination across distributed teams.
-- Earlier validation of intent.
-- Reduced rework when specs are high quality.
-- More leverage from repeatable, agent-assisted work.
-- Clearer accountability when specs are treated as operational artifacts.
+TBD
 
 ## 9. Where SDD introduces tradeoffs
-- Specification overhead can slow the start of work.
-- Poor specs can scale defects faster than manual coding mistakes.
-- Review burden can shift from implementation to intent and traceability.
-- Governance can become too heavy if every artifact is treated as equally important.
-- Token cost can become invisible if teams optimize locally.
+TBD
 
 ## 10. Decision framework
 ### 10.1 When SDD is a good fit
+TBD, likely to include:
 - Stable interfaces.
 - Repetitive or well-bounded work.
 - High cost of coordination errors.
 - Strong review and verification culture.
 
 ### 10.2 When to be cautious
+TBD, likely to include:
 - Highly exploratory work.
 - Rapidly changing requirements.
 - Weak test or review discipline.
@@ -214,36 +187,19 @@ flowchart LR
 - What problem are we solving with SDD in this organization?
 - Which work types should be spec-driven first?
 - Which controls are mandatory, and which are optional?
+- ...
 
 ## 11. Operating implications
-### 11.1 Planning
-- Estimate spec effort separately from build effort where useful.
-- Treat upstream clarity as a capacity question, not just a documentation question.
-
-### 11.2 Review and approval
-- Define who approves specs, implementation, and release readiness.
-- Avoid unclear ownership between product, engineering, and platform teams.
-
-### 11.3 Verification
-- Make tests, checks, and human review part of the system design.
-- Use verification to constrain agent-generated work.
-
-### 11.4 Accountability
-- Preserve human accountability even when agents produce most of the first draft.
-- Make traceability explicit from requirement to spec to implementation to evidence.
+TBD
 
 ## 12. Examples and scenarios
+TBD, likely to include:
 - A low-risk, repetitive workflow where SDD improves throughput.
 - A cross-team integration effort where SDD improves coordination.
 - A high-ambiguity effort where SDD should be introduced carefully.
 
 ## 13. Recommendations
-- Start with work that benefits from clarity, repeatability, and strong verification.
-- Treat spec quality as a first-class engineering concern.
-- Measure both flow improvements and review overhead.
-- Align budgeting, planning, and governance around labor plus token economics.
+TBD
 
 ## 14. Conclusion
-- Restate the central mental model.
-- Emphasize that SDD is an organizational choice with economic and operational consequences.
-- End with the practical test: whether the model helps teams make better decisions about work allocation, accountability, and leverage.
+TBD
